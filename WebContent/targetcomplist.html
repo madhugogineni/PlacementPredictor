@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Target Company List</title>
+<script>
+function check()
+{
+	var frmname=document.getElementById('frm');
+var data=document.getElementById('name').value;
+document.getElementById('errortxt').style.color="red";
+if(data==null || data=="")
+	{
+	document.getElementById('errortxt').innerHTML="data entered can't be empty";
+	return false;
+	}
+else
+	{
+	frmname.setAttribute('action','tclist');
+	return true;
+	}
+}
+</script>
+</head>
+<p id="errortxt"></p>
+<form id="frm" id="frm" action="javascript:check()" method="post" onSubmit="return check()">
+Company Name:<input type="text" name="name" id="name" maxlength="20"/><br/><br/>
+<input type="submit" value="submit"/>
+</form>
+</html>

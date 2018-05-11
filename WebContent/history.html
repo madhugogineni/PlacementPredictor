@@ -1,0 +1,57 @@
+<html>
+<head>
+<title> HISTORY </title>
+<script>
+  function check()
+  {
+    var count=0;
+    document.getElementById('errortxt').style.color="red";
+    var frmname    = document.getElementById('frm');
+    var nameda     = document.getElementById('name').value;
+    var timespanda = document.getElementById('timespan').value;
+    var studnoda   = document.getElementById('studno').value;
+    var packageda  = document.getElementById('package').value;
+    if(nameda=="" || nameda==null)
+    {
+      count++;
+    }
+    if(timespanda=="" || timespanda==null)
+    {
+      count++;
+    }
+    if(studnoda==null ||studnoda=="")
+    {
+      count++;
+    }
+    if(packageda=="" || packageda==null)
+    {
+      count++;
+    }
+    if(count!=0)
+    {
+          document.getElementById('errortxt').innerHTML="all the fields should be have data entered";
+          return false;
+    }
+    else
+    {
+        frmname.setAttribute('action','chistory');
+        return true;
+    }
+  }
+</script>
+</head>
+<body>
+<p>The package field must be denoted by lpa(lakhs per annum)</p>
+<p id="errortxt"></p>
+<form name="frm" id="frm" method="post" action="javascript:check()" onsubmit="return check()">
+COMPANY NAME:               <input type="text" id="name" name="name" maxlength="20" /><br><br>
+
+MONTH COMPANY VISITED:      <input type="text" id="timespan" name="timespan" maxlength="20" /><br><br>
+
+NO.OF STUDENTS RECRUITED:   <input type="number" id="studno" name="studno" min="0" max="999" maxlength="3"/><br><br>
+
+PACKAGE:                    <input type="text" id="package" name="package" maxlength="15" /><br><br>
+<input type="submit" name="submit" value="Submit" />
+</form>
+</body>
+</html>
